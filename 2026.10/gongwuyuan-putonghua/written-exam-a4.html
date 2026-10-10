@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>政務主任普通話水平測試｜筆試演示卷</title>
+    <style>
+      :root {
+        --ink: #111111;
+        --muted: #555555;
+        --line: #777777;
+        --blue: #111111;
+        --blue-soft: #ffffff;
+        --paper: #ffffff;
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body { margin: 0; min-height: 100%; }
+
+      body {
+        color: var(--ink);
+        font-family: "Songti TC", "Noto Serif TC", "PMingLiU", "STSong", serif;
+        background: #d8d8d8;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .screen-toolbar {
+        position: fixed;
+        z-index: 20;
+        top: 18px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        background: transparent;
+      }
+
+      .screen-toolbar > div { display: none; }
+
+      .print-button {
+        padding: 9px 16px;
+        color: #222;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 700;
+        background: #fff;
+        border: 1px solid #777;
+        border-radius: 2px;
+        cursor: pointer;
+        box-shadow: 0 3px 10px rgb(0 0 0 / 12%);
+      }
+
+      .page-stack { padding: 20px 0 40px; }
+
+      .page {
+        position: relative;
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto 20px;
+        padding: 14mm 16mm 15mm;
+        background: var(--paper);
+        border: 1px solid #c8c8c8;
+        box-shadow: 0 7px 22px rgb(0 0 0 / 15%);
+        page-break-after: always;
+      }
+
+      .page:last-child { page-break-after: auto; }
+
+      .exam-header {
+        position: relative;
+        display: block;
+        align-items: center;
+        padding: 1mm 0 6mm;
+        border-bottom: 1.5px solid #111;
+      }
+
+      .exam-mark {
+        display: none;
+      }
+
+      .exam-title { text-align: center; }
+      .exam-title small { color: #222; font-size: 13px; font-weight: 400; letter-spacing: 0.12em; }
+      .exam-title h1 { margin: 3mm 0 1.5mm; font-size: 28px; letter-spacing: 0.14em; }
+      .exam-title p { margin: 0; color: #222; font-size: 17px; letter-spacing: 0.24em; }
+      .paper-code { position: absolute; top: 1mm; right: 0; color: #555; font-size: 9px; line-height: 1.6; text-align: right; }
+
+      .candidate-fields {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12mm;
+        margin: 7mm 0 6mm;
+        font-size: 14px;
+      }
+
+      .field {
+        display: flex;
+        align-items: flex-end;
+        gap: 7px;
+      }
+
+      .field-line { flex: 1; height: 22px; border-bottom: 1px solid #424e60; }
+
+      .notice-box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px 18px;
+        margin-bottom: 7mm;
+        padding: 4mm 5mm;
+        font-size: 13px;
+        line-height: 1.6;
+        background: #fff;
+        border: 1px solid #555;
+        border-radius: 0;
+      }
+
+      .notice-box strong { color: var(--blue); }
+
+      .section-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 0 4mm;
+        padding: 3.3mm 4mm;
+        background: #fff;
+        border-top: 1.5px solid #111;
+        border-bottom: 1px solid #111;
+      }
+
+      .section-heading h2 { margin: 0; font-size: 19px; }
+      .section-heading span { color: #222; font-size: 12px; font-weight: 700; }
+
+      .instructions {
+        margin: 0 0 4mm;
+        color: #4d596d;
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .listening-group { margin-top: 5mm; }
+      .listening-group h3 { margin: 0 0 2.5mm; color: #111; font-size: 16px; }
+
+      .plain-section-title { margin: 0 0 5mm; }
+      .plain-section-title h2 { margin: 0 0 2mm; font-size: 19px; }
+      .plain-section-title p { margin: 0; font-size: 14px; line-height: 1.7; }
+      .plain-question-list { margin: 0; padding: 0; font-size: 15px; line-height: 1.65; list-style: none; counter-reset: listening; }
+      .plain-question-list li { position: relative; margin-bottom: 3.2mm; padding-left: 8mm; counter-increment: listening; }
+      .plain-question-list li::before { position: absolute; left: 0; content: counter(listening) "）"; }
+
+      .question-list {
+        margin: 0;
+        padding-left: 7mm;
+        font-size: 15px;
+        line-height: 1.62;
+      }
+
+      .question-list li { margin-bottom: 3.2mm; padding-left: 1.5mm; }
+      .answer-choice { float: right; min-width: 28mm; text-align: right; }
+
+      .question-list.compact { font-size: 14px; line-height: 1.52; }
+      .question-list.compact li { margin-bottom: 3.1mm; }
+      .target { font-weight: 700; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+      .blank { display: inline-block; margin: 0 1mm; vertical-align: baseline; }
+      .blank::before { content: "（　　　　　）"; }
+
+      .pinyin-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2.2mm;
+        margin: 1mm 0 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: pinyin 14;
+      }
+
+      .pinyin-grid li {
+        position: relative;
+        display: flex;
+        align-items: center;
+        min-height: 9.5mm;
+        padding: 2mm 3mm 2mm 11mm;
+        font-size: 14px;
+        line-height: 1.45;
+        border-bottom: 1px solid #b4b4b4;
+        counter-increment: pinyin;
+      }
+
+      .pinyin-grid li::before {
+        position: absolute;
+        top: 2mm;
+        left: 3mm;
+        color: #111;
+        font-weight: 750;
+        content: counter(pinyin) ".";
+      }
+
+      .hanzi-boxes { margin-left: auto; padding-left: 5mm; white-space: nowrap; }
+      .hanzi-boxes::before { content: "（　　　　　）"; }
+      .hanzi-boxes i { display: none; }
+
+      .translation-list { margin: 0; padding: 0; list-style: none; counter-reset: translation; }
+      .translation-list li {
+        position: relative;
+        margin-bottom: 4mm;
+        padding-left: 8mm;
+        font-size: 15px;
+        line-height: 1.65;
+        counter-increment: translation;
+      }
+
+      .translation-list li::before {
+        position: absolute;
+        left: 0;
+        color: #111;
+        font-weight: 750;
+        content: counter(translation) ".";
+      }
+
+      .writing-lines { margin-top: 3mm; }
+      .writing-lines i { display: block; height: 7mm; border-bottom: 1px solid #aab2be; }
+
+      .score-box {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 5mm;
+        border: 1px solid #798597;
+      }
+
+      .score-box div { min-height: 14mm; padding: 3mm; border-right: 1px solid #798597; }
+      .score-box div:last-child { border-right: 0; }
+      .score-box span { display: block; color: var(--muted); font-size: 9px; }
+
+      .page-footer {
+        position: absolute;
+        right: 16mm;
+        bottom: 7mm;
+        left: 16mm;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 2.5mm;
+        color: #858e9c;
+        font-size: 8.5px;
+        border-top: 1px solid #e1e4e9;
+      }
+
+      @page { size: A4 portrait; margin: 0; }
+
+      @media print {
+        body { background: #fff; }
+        .screen-toolbar { display: none; }
+        .page-stack { padding: 0; }
+        .candidate-fields { display: flex; }
+        .candidate-fields .field { width: 50%; }
+        .notice-box { display: flex; flex-wrap: wrap; }
+        .notice-box > div { width: 46%; }
+        .pinyin-grid { display: block; }
+        .pinyin-grid li { margin-bottom: 2.2mm; }
+        .score-box { display: flex; }
+        .score-box > div { flex: 1; }
+        .page {
+          width: 210mm;
+          height: 297mm;
+          min-height: 297mm;
+          margin: 0;
+          overflow: hidden;
+          box-shadow: none;
+          break-after: page;
+        }
+      }
+
+      @media screen and (max-width: 850px) {
+        .screen-toolbar span { display: none; }
+        .page-stack { overflow-x: auto; padding-inline: 12px; }
+        .page { transform-origin: top left; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="screen-toolbar">
+      <div><strong>A4 筆試演示卷</strong><span>共 4 頁 · 43 道題 · 考生版本</span></div>
+      <button class="print-button" type="button" onclick="window.print()">打印／另存為 PDF</button>
+    </div>
+
+    <main class="page-stack">
+      <section class="page">
+        <header class="exam-header">
+          <div class="exam-mark">AO</div>
+          <div class="exam-title">
+            <small>公務員事務局　政務職系部</small>
+            <h1>政務主任普通話水平測試</h1>
+            <p>筆試演示卷</p>
+          </div>
+          <div class="paper-code">卷號<br />AO-W-01</div>
+        </header>
+
+        <div class="candidate-fields">
+          <div class="field"><strong>考生姓名</strong><span class="field-line"></span></div>
+          <div class="field"><strong>考生號</strong><span class="field-line"></span></div>
+        </div>
+
+        <div class="notice-box">
+          <div><strong>應試時間：</strong>約 45 分鐘</div>
+          <div><strong>試卷總分：</strong>100 分</div>
+          <div><strong>試卷結構：</strong>聆聽、拼音知識、廣普對譯</div>
+          <div><strong>題目總數：</strong>43 道</div>
+        </div>
+
+        <div class="plain-section-title">
+          <h2>一、聆聽測試</h2>
+          <p>（本部分包括兩組聆聽理解試題。請根據兩段錄音內容判斷下列句子是否正確；正確的填「✓」，錯誤的填「×」。）</p>
+        </div>
+
+        <div class="listening-group">
+          <h3>1、第一組錄音</h3>
+          <ol class="plain-question-list">
+            <li>東區公共服務中心將於下月開始推行網上預約。</li>
+            <li>市民可以提前三十天選擇辦理時段。</li>
+            <li>市民可以在預約當天更改一次時間。</li>
+            <li>長者只能親自到服務中心尋求協助。</li>
+            <li>公共服務中心星期六照常開放。</li>
+          </ol>
+        </div>
+
+        <div class="listening-group">
+          <h3>2、第二組錄音</h3>
+          <ol class="plain-question-list">
+            <li>公共溝通技巧課程為期四星期。</li>
+            <li>課堂安排在每個星期五上午。</li>
+            <li>課程所有課堂都以網上形式進行。</li>
+            <li>參加者須在課程結束前完成一份實務作業。</li>
+            <li>各部門主管須於本星期五之前提交參加者名單。</li>
+          </ol>
+        </div>
+
+        <footer class="page-footer"><span>演示試卷 · 非正式考試原題</span><span>第 1 頁／共 4 頁</span></footer>
+      </section>
+
+      <section class="page">
+        <header class="exam-header">
+          <div class="exam-mark">AO</div>
+          <div class="exam-title">
+            <small>公務員事務局　政務職系部</small>
+            <h1>政務主任普通話水平測試</h1>
+            <p>筆試演示卷</p>
+          </div>
+          <div class="paper-code">卷號<br />AO-W-01</div>
+        </header>
+
+        <div class="candidate-fields">
+          <div class="field"><strong>考生姓名</strong><span class="field-line"></span></div>
+          <div class="field"><strong>考生號</strong><span class="field-line"></span></div>
+        </div>
+
+        <div class="section-heading">
+          <h2>第二部分　普通話拼音知識</h2>
+          <span>第 1－14 題 · 佔 40%</span>
+        </div>
+        <p class="instructions"><strong>第一題型：</strong>請根據句意，在括號內寫出畫線多音字的漢語拼音和聲調符號。</p>
+
+        <ol class="question-list compact">
+          <li>辦事處設在銀<span class="target">行</span><span class="blank"></span>旁邊，市民可以步<span class="target">行</span><span class="blank"></span>前往。</li>
+          <li>這項工作不應<span class="target">重</span><span class="blank"></span>複處理，但<span class="target">重</span><span class="blank"></span>要資料仍須再次核實。</li>
+          <li>本次活動安排了音<span class="target">樂</span><span class="blank"></span>表演，參加者都度過了快<span class="target">樂</span><span class="blank"></span>的一天。</li>
+          <li>新同事在工作中不斷成<span class="target">長</span><span class="blank"></span>，現在已能準確分辨句子的<span class="target">長</span><span class="blank"></span>短。</li>
+          <li>請按期歸<span class="target">還</span><span class="blank"></span>借閱的文件；如果<span class="target">還</span><span class="blank"></span>有問題，可以致電查詢。</li>
+          <li>根據最新<span class="target">數</span><span class="blank"></span>據，工作人員需要把申請人數再<span class="target">數</span><span class="blank"></span>一遍。</li>
+          <li>網上申請十分方<span class="target">便</span><span class="blank"></span>，相關服務的費用也很<span class="target">便</span><span class="blank"></span>宜。</li>
+          <li>申請人<span class="target">應</span><span class="blank"></span>該如實填寫資料，部門會在限期內作出回<span class="target">應</span><span class="blank"></span>。</li>
+          <li>部門將進行民意<span class="target">調</span><span class="blank"></span>查，並根據結果<span class="target">調</span><span class="blank"></span>整服務安排。</li>
+          <li>工作人員要妥善<span class="target">處</span><span class="blank"></span>理文件，並把副本送到地區辦事<span class="target">處</span><span class="blank"></span>。</li>
+          <li>大家都<span class="target">覺</span><span class="blank"></span>得這項措施很方便；考試前一晚也要早點睡<span class="target">覺</span><span class="blank"></span>。</li>
+          <li>請把這一段短文<span class="target">背</span><span class="blank"></span>誦下來，進入考場前不要忘記拿走<span class="target">背</span><span class="blank"></span>包。</li>
+          <li>兩個方案的<span class="target">差</span><span class="blank"></span>別不大，負責人明天要到外地出<span class="target">差</span><span class="blank"></span>。</li>
+          <li>機器不停地<span class="target">轉</span><span class="blank"></span>動，工作人員立即<span class="target">轉</span><span class="blank"></span>身關掉電源。</li>
+        </ol>
+
+        <footer class="page-footer"><span>演示試卷 · 非正式考試原題</span><span>第 2 頁／共 4 頁</span></footer>
+      </section>
+
+      <section class="page">
+        <header class="exam-header">
+          <div class="exam-mark">AO</div>
+          <div class="exam-title">
+            <small>公務員事務局　政務職系部</small>
+            <h1>政務主任普通話水平測試</h1>
+            <p>筆試演示卷</p>
+          </div>
+          <div class="paper-code">卷號<br />AO-W-01</div>
+        </header>
+
+        <div class="candidate-fields">
+          <div class="field"><strong>考生姓名</strong><span class="field-line"></span></div>
+          <div class="field"><strong>考生號</strong><span class="field-line"></span></div>
+        </div>
+
+        <div class="section-heading">
+          <h2>第二部分　普通話拼音知識</h2>
+          <span>第 15－28 題 · 佔 40%</span>
+        </div>
+        <p class="instructions"><strong>第二題型：</strong>請把句中畫有底線的漢語拼音寫成正確的漢字。</p>
+
+        <ol class="pinyin-grid">
+          <li>請在本月底前提交 <span class="target">shēnqǐng</span> 表格。<span class="hanzi-boxes"><i></i><i></i></span></li>
+          <li>政府部門會盡快 <span class="target">chǔlǐ</span> 市民的查詢。<span class="hanzi-boxes"><i></i><i></i></span></li>
+          <li>新措施有助提高公共服務的 <span class="target">xiàolǜ</span>。<span class="hanzi-boxes"><i></i><i></i></span></li>
+          <li>工作人員應耐心 <span class="target">jiěshì</span> 申請程序。<span class="hanzi-boxes"><i></i><i></i></span></li>
+          <li>各部門需要加強 <span class="target">gōutōng</span> 和協作。<span class="hanzi-boxes"><i></i><i></i></span></li>
+          <li>會議將討論資源 <span class="target">fēnpèi</span> 問題。<span class="hanzi-boxes"><i></i><i></i></span></li>
+          <li>我們會根據實際情況作出 <span class="target">tiáozhěng</span>。<span class="hanzi-boxes"><i></i><i></i></span></li>
+          <li>這項政策仍在 <span class="target">yánjiū</span> 階段。<span class="hanzi-boxes"><i></i><i></i></span></li>
+          <li>所有資料必須保持 <span class="target">zhǔnquè</span>。<span class="hanzi-boxes"><i></i><i></i></span></li>
+          <li>新系統使辦事流程更加 <span class="target">tòumíng</span>。<span class="hanzi-boxes"><i></i><i></i></span></li>
+          <li>市民可以通過網上平台 <span class="target">yùyuē</span> 服務。<span class="hanzi-boxes"><i></i><i></i></span></li>
+          <li>部門會定期 <span class="target">pínggū</span> 措施成效。<span class="hanzi-boxes"><i></i><i></i></span></li>
+          <li>我們應關注不同羣體的實際 <span class="target">xūqiú</span>。<span class="hanzi-boxes"><i></i><i></i></span></li>
+          <li>有關安排將於下星期正式 <span class="target">gōngbù</span>。<span class="hanzi-boxes"><i></i><i></i></span></li>
+        </ol>
+
+        <footer class="page-footer"><span>演示試卷 · 非正式考試原題</span><span>第 3 頁／共 4 頁</span></footer>
+      </section>
+
+      <section class="page">
+        <header class="exam-header">
+          <div class="exam-mark">AO</div>
+          <div class="exam-title">
+            <small>公務員事務局　政務職系部</small>
+            <h1>政務主任普通話水平測試</h1>
+            <p>筆試演示卷</p>
+          </div>
+          <div class="paper-code">卷號<br />AO-W-01</div>
+        </header>
+
+        <div class="candidate-fields">
+          <div class="field"><strong>考生姓名</strong><span class="field-line"></span></div>
+          <div class="field"><strong>考生號</strong><span class="field-line"></span></div>
+        </div>
+
+        <div class="section-heading">
+          <h2>第三部分　廣普對譯</h2>
+          <span>5 道 · 佔 20%</span>
+        </div>
+        <p class="instructions">請把下列廣東話語句翻譯成普通話句子，並把答案寫在橫線上。</p>
+
+        <ol class="translation-list">
+          <li>
+            大家一齊做嘢，最緊要係咬弦。
+            <div class="writing-lines"><i></i><i></i></div>
+          </li>
+          <li>
+            麻煩你幫我睇吓份文件有冇漏咗資料。
+            <div class="writing-lines"><i></i><i></i></div>
+          </li>
+          <li>
+            呢項安排下個月先正式開始，而家仲未實行。
+            <div class="writing-lines"><i></i><i></i></div>
+          </li>
+          <li>
+            如果你趕唔切交表，記得早啲通知負責同事。
+            <div class="writing-lines"><i></i><i></i></div>
+          </li>
+          <li>
+            部門會因應實際情況，再諗吓點樣改善服務。
+            <div class="writing-lines"><i></i><i></i></div>
+          </li>
+        </ol>
+
+        <div class="score-box">
+          <div><span>聆聽測試（40%）</span></div>
+          <div><span>普通話拼音知識（40%）</span></div>
+          <div><span>廣普對譯（20%）</span></div>
+        </div>
+
+        <footer class="page-footer"><span>演示試卷 · 非正式考試原題</span><span>第 4 頁／共 4 頁</span></footer>
+      </section>
+    </main>
+  </body>
+</html>

@@ -65,12 +65,22 @@
         {
           "id": "REQ-ESSAY-GRADE",
           "title": "作文品第切换",
-          "subtitle": "百分制与品第评分切换、分项编辑及成绩概览。",
+          "subtitle": "作文模拟报告、品第评分切换与保存。",
           "status": "in-progress",
           "previewUrl": "./2026.10/grade/",
           "updatedAt": "2026-10-10",
           "createdAt": "2026-10-10",
           "folderName": "作文品第切换"
+        },
+        {
+          "id": "REQ-PUTONGHUA",
+          "title": "公务员普通话",
+          "subtitle": "普通话评测、学习系统方案及独立评测体验。",
+          "status": "in-progress",
+          "previewUrl": "./2026.10/gongwuyuan-putonghua/",
+          "updatedAt": "2026-10-10",
+          "createdAt": "2026-10-08",
+          "folderName": "公务员普通话"
         }
       ]
     },
@@ -100,7 +110,18 @@
       "expanded": true,
       "color": "green",
       "showEmpty": true,
-      "items": []
+      "items": [
+        {
+          "id": "REQ-ESSAY-GRADE-OPT",
+          "title": "作文品第-相关优化",
+          "folderName": "作文品第-相关优化",
+          "subtitle": "成绩概览、品第统计、导出与学生端报告。",
+          "status": "review",
+          "previewUrl": "./2026.10/zuowen-pindi-xiangguan-youhua/",
+          "createdAt": "2026-10-10",
+          "updatedAt": "2026-10-10"
+        }
+      ]
     },
     {
       "id": "hidden-history",

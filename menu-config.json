@@ -2,7 +2,7 @@
   "meta": {
     "title": "中文路 · 产品原型总览",
     "subtitle": "Product Prototype Overview · 产品经理维护",
-    "updatedAt": "2026-09-24",
+    "updatedAt": "2026-10-10",
     "owner": "PM",
     "version": "1.0"
   },
@@ -56,11 +56,52 @@
   ],
   "groups": [
     {
-      "id": "2026-09",
-      "title": "2026 年 9 月",
-      "subtitle": "本月迭代 · 进行中",
+      "id": "2026-10",
+      "title": "2026.10",
+      "subtitle": "",
       "expanded": true,
       "color": "blue",
+      "items": [
+        {
+          "id": "REQ-ESSAY-GRADE",
+          "title": "作文品第切换",
+          "subtitle": "百分制与品第评分切换、分项编辑及成绩概览。",
+          "status": "in-progress",
+          "previewUrl": "./2026.10/作文品第切换/",
+          "updatedAt": "2026-10-10"
+        }
+      ]
+    },
+    {
+      "id": "2026-09",
+      "title": "2026.09",
+      "subtitle": "",
+      "expanded": true,
+      "color": "blue",
+      "items": [
+        {
+          "id": "REQ-001",
+          "title": "命题作文-批量导入",
+          "subtitle": "批量导入作文、核查文件与学生对应关系，查看需求及验收清单。",
+          "status": "in-progress",
+          "previewUrl": "./2026.09/命题作文-批量导入/",
+          "updatedAt": "2026-10-10"
+        }
+      ]
+    },
+    {
+      "id": "pending-review",
+      "title": "待评审",
+      "subtitle": "",
+      "expanded": true,
+      "color": "green",
+      "showEmpty": true,
+      "items": []
+    },
+    {
+      "id": "hidden-history",
+      "title": "历史入口",
+      "expanded": false,
       "items": [
         {
           "id": "REQ-KAODIAN-GL",
@@ -84,7 +125,8 @@
             }
           ],
           "branch": "feature/REQ-KAODIAN-GL",
-          "updatedAt": "2026-09-28"
+          "updatedAt": "2026-09-28",
+          "hidden": true
         },
         {
           "id": "REQ-APP-KAODIAN-FILTER",
@@ -101,32 +143,6 @@
           "branch": "feature/REQ-APP-KAODIAN-FILTER",
           "updatedAt": "2026-09-28",
           "hidden": true
-        },
-        {
-          "id": "REQ-001",
-          "title": "命题作文 - 批量导入",
-          "subtitle": "老师批量上传作文图片，AI 自动分类，拖拽分配",
-          "version": "V0.3",
-          "status": "in-progress",
-          "tags": [
-            "B端",
-            "学校",
-            "AI整理"
-          ],
-          "previewUrl": "http://a.localhost:4173/mockup-batch-import.html",
-          "extras": [
-            {
-              "label": "导入弹窗",
-              "url": "http://a.localhost:4173/mockup-import-summary.html"
-            },
-            {
-              "label": "AI 分类",
-              "url": "http://a.localhost:4173/mockup-ai-classify.html",
-              "hidden": true
-            }
-          ],
-          "branch": "explore/REQ-001-batch-import",
-          "updatedAt": "2026-09-24"
         },
         {
           "id": "REQ-VIP-001",
@@ -178,16 +194,7 @@
           "branch": "",
           "updatedAt": "2026-09-10",
           "hidden": true
-        }
-      ]
-    },
-    {
-      "id": "2026-08",
-      "title": "2026 年 8 月",
-      "subtitle": "已交付 · 历史归档可查",
-      "expanded": false,
-      "color": "green",
-      "items": [
+        },
         {
           "id": "REQ-XYZ-001",
           "title": "订单全链路",

@@ -294,12 +294,6 @@
 
 <main>
 
-  <div class="setup-banner" id="setupBanner">
-    <span>⚙️</span>
-    <span><b>初始化提示：</b>本页面由 <code style="background:rgba(0,0,0,.06);padding:1px 6px;border-radius:3px;">menu-config.json</code> 自动渲染。产品经理只需编辑该 JSON 并 push 到 git，Vercel 部署后页面自动更新（1-2 分钟）。</span>
-    <span class="close" onclick="document.getElementById('setupBanner').remove()">×</span>
-  </div>
-
   <div id="timeline"></div>
 
 </main>
@@ -350,7 +344,7 @@ function renderTimeline() {
   const wrap = document.getElementById("timeline");
   const matchedGroups = config.groups
     .map(g => ({ ...g, items: g.items.filter(matchesFilter) }))
-    .filter(g => g.items.length > 0);
+    .filter(g => g.items.length > 0 || (g.showEmpty && !searchQuery));
 
   if (matchedGroups.length === 0) {
     wrap.innerHTML = `<div class="empty">
@@ -361,7 +355,7 @@ function renderTimeline() {
   }
 
   wrap.innerHTML = matchedGroups.map(g => {
-    const itemsHtml = g.items.map(item => renderCard(item)).join("");
+    const itemsHtml = g.items.length ? g.items.map(item => renderCard(item)).join("") : `<p class="req-subtitle">暂无待评审原型</p>`;
     return `
       <section class="time-group ${g.expanded ? "expanded" : ""} color-${g.color || "blue"}">
         <div class="time-head" onclick="toggleGroup(this.parentElement)">

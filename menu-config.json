@@ -83,7 +83,7 @@
           "id": "REQ-001",
           "title": "命题作文-批量导入",
           "subtitle": "批量导入作文、核查文件与学生对应关系，查看需求及验收清单。",
-          "status": "in-progress",
+          "status": "launched",
           "previewUrl": "./2026.09/命题作文-批量导入/",
           "updatedAt": "2026-10-10"
         }

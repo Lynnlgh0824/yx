@@ -158,6 +158,9 @@
   }
   .req-card.status-in-progress { border-top: 3px solid #2563eb; }
   .req-card.status-review { border-top: 3px solid #f59e0b; }
+  .req-card.status-launched { border-top: 3px solid #10b981; }
+  .req-status.launched { background: #d1fae5; color: #047857; }
+  .req-status.launched::before { content: "✓ "; }
   .req-card.status-delivered { border-top: 3px solid #10b981; }
   .req-card.status-designing { border-top: 3px solid #9ca3af; }
 
@@ -304,6 +307,7 @@ const STATUS_LABEL = {
   "in-progress": "开发中",
   "review":      "评审中",
   "delivered":   "已交付",
+  "launched":    "已上线",
   "designing":   "设计中",
   "archived":    "已归档"
 };

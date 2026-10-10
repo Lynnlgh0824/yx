@@ -146,7 +146,7 @@
   .req-card {
     background: #fff; border-radius: 10px;
     border: 1px solid #e5e7eb;
-    padding: 18px;
+    padding: 14px 16px;
     transition: all .15s;
     position: relative;
     overflow: hidden;
@@ -163,7 +163,7 @@
 
   .req-card-head {
     display: flex; align-items: center; gap: 8px;
-    margin-bottom: 8px; font-size: 12px;
+    margin-bottom: 5px; font-size: 12px;
   }
   .req-card-head .req-title { margin: 0; flex: 1; min-width: 0; }
   .req-card-head .req-status { flex-shrink: 0; }
@@ -199,7 +199,6 @@
   .req-subtitle {
     font-size: 12px; color: #6b7280;
     margin: 0 0 12px; line-height: 1.5;
-    min-height: 36px;
   }
   .req-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
   .req-tags .tag {
@@ -215,9 +214,8 @@
   .req-tags .tag.color-indigo { background: #e0e7ff; color: #4338ca; }
 
   .req-actions {
-    display: flex; gap: 8px; flex-wrap: wrap;
-    border-top: 1px dashed #f3f4f6;
-    padding-top: 12px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; flex-wrap: wrap;
   }
   .req-link {
     display: inline-flex; align-items: center; gap: 4px;
@@ -234,7 +232,6 @@
   .req-link.disabled { opacity: .4; pointer-events: none; }
 
   .req-meta {
-    margin-top: 10px;
     display: flex; align-items: center; gap: 10px;
     font-size: 11px; color: #9ca3af;
   }
@@ -382,7 +379,7 @@ function renderCard(item) {
   const previewDisabled = !item.previewUrl || item.previewUrl === "#";
   const previewHtml = previewDisabled
     ? `<span class="req-link disabled">原型未上传</span>`
-    : `<a class="req-link primary" href="${item.previewUrl}" target="_blank">📐 原型 ↗</a>`;
+    : `<a class="req-link primary" href="${item.previewUrl}" target="_blank">原型 ↗</a>`;
 
   return `
     <div class="req-card status-${item.status}">
@@ -393,9 +390,7 @@ function renderCard(item) {
       <p class="req-subtitle">${item.subtitle || ""}</p>
       <div class="req-actions">
         ${previewHtml}
-      </div>
-      <div class="req-meta">
-        <span>更新 ${item.updatedAt}</span>
+        <span class="req-meta">更新 ${item.updatedAt}</span>
       </div>
     </div>
   `;

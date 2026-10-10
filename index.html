@@ -2,8 +2,9 @@
 <!-- vercel-redeploy trigger: 2026-09-28 12:38 -->
 <html lang="zh-CN">
 <head>
+<meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8" />
-<title>中文路 · 产品原型总览</title>
+<title>产品原型总览</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>
   * { box-sizing: border-box; }
@@ -26,10 +27,7 @@
   }
   .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; }
   .brand .logo {
-    width: 28px; height: 28px; border-radius: 8px;
-    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-    color: #fff; display: flex; align-items: center; justify-content: center;
-    font-size: 14px; font-weight: 700;
+    width: 88px; height: 39px; object-fit: contain; flex-shrink: 0;
   }
   .brand-text { font-size: 16px; color: #111827; }
   .brand-sub { font-size: 12px; color: #9ca3af; margin-left: 4px; font-weight: 400; }
@@ -139,14 +137,14 @@
   /* ── 需求卡片（二级菜单） ── */
   .req-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
     gap: 14px;
   }
 
   .req-card {
     background: #fff; border-radius: 10px;
     border: 1px solid #e5e7eb;
-    padding: 14px 16px;
+    padding: 16px 18px;
     transition: all .15s;
     position: relative;
     overflow: hidden;
@@ -165,11 +163,13 @@
   .req-card.status-designing { border-top: 3px solid #9ca3af; }
 
   .req-card-head {
-    display: flex; align-items: center; gap: 8px;
-    margin-bottom: 5px; font-size: 12px;
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 10px; font-size: 12px;
   }
   .req-card-head .req-title { margin: 0; flex: 1; min-width: 0; }
-  .req-card-head .req-status { flex-shrink: 0; }
+  .req-card-head .req-link { flex-shrink: 0; padding: 6px 12px; }
+  .req-card-head .req-title { overflow-wrap: anywhere; }
+  .req-link:focus-visible { outline: 3px solid #93c5fd; outline-offset: 3px; }
   .req-id {
     font-family: "SF Mono", Consolas, monospace;
     color: #6b7280;
@@ -279,8 +279,8 @@
 
 <div class="topbar">
   <div class="brand">
-    <div class="logo">路</div>
-    <span class="brand-text">中文路 · 产品原型总览</span>
+    <img class="logo" src="./assets/chineserd-logo.png" alt="中文路" width="88" height="39">
+    <span class="brand-text">产品原型总览</span>
     <span class="brand-sub">Product Prototype Overview</span>
   </div>
   <div class="topbar-tools">
@@ -288,7 +288,6 @@
       <input id="search" type="search" placeholder="搜索需求标题 / ID / 标签..." />
     </div>
     <button class="tool-btn" onclick="location.reload()">↻ 刷新</button>
-    <a class="tool-btn primary" href="#" id="githubLink">GitHub PR ↗</a>
   </div>
 </div>
 
@@ -299,7 +298,7 @@
 </main>
 
 <footer>
-  本页面基于 <code>menu-config.json</code> 渲染 · 最后更新 <span id="updatedAt"></span> · 通过 Git 版本管理
+  内部文件，请勿外传
 </footer>
 
 <script>
@@ -323,7 +322,18 @@ async function load() {
 
 function render() {
   renderTimeline();
-  document.getElementById("updatedAt").textContent = config.meta.updatedAt;
+}
+
+function requirementDate(item) {
+  return /^\d{4}-\d{2}-\d{2}/.test(item.createdAt || "") ? item.createdAt : "";
+}
+function requirementTitle(item) {
+  const name = item.folderName || item.title;
+  const date = requirementDate(item).slice(0, 10);
+  return date ? `${date.slice(5).replace("-", ".")}-${name}` : name;
+}
+function newestFirst(a, b) {
+  return requirementDate(b).localeCompare(requirementDate(a));
 }
 
 function matchesFilter(item) {
@@ -333,7 +343,7 @@ function matchesFilter(item) {
   if (searchQuery) {
     const q = searchQuery.toLowerCase();
     const hay = [
-      item.title, item.id, item.subtitle, item.version,
+      requirementTitle(item), item.title, item.id, item.subtitle, item.version,
       ...(item.tags || [])
     ].join(" ").toLowerCase();
     if (!hay.includes(q)) return false;
@@ -344,7 +354,7 @@ function matchesFilter(item) {
 function renderTimeline() {
   const wrap = document.getElementById("timeline");
   const matchedGroups = config.groups
-    .map(g => ({ ...g, items: g.items.filter(matchesFilter) }))
+    .map(g => ({ ...g, items: g.items.filter(matchesFilter).sort(newestFirst) }))
     .filter(g => g.items.length > 0 || (g.showEmpty && !searchQuery));
 
   if (matchedGroups.length === 0) {
@@ -386,16 +396,12 @@ function renderCard(item) {
     : `<a class="req-link primary" href="${item.previewUrl}" target="_blank">原型 ↗</a>`;
 
   return `
-    <div class="req-card status-${item.status}">
+    <div class="req-card">
       <div class="req-card-head">
-        <h3 class="req-title">${item.title}</h3>
-        <span class="req-status ${item.status}">${STATUS_LABEL[item.status] || item.status}</span>
-      </div>
-      <p class="req-subtitle">${item.subtitle || ""}</p>
-      <div class="req-actions">
+        <h3 class="req-title">${requirementTitle(item)}</h3>
         ${previewHtml}
-        <span class="req-meta">更新 ${item.updatedAt}</span>
       </div>
+      <div class="req-meta">更新 ${item.updatedAt}</div>
     </div>
   `;
 }

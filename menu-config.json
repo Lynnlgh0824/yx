@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "中文路 · 产品原型总览",
+    "title": "产品原型总览",
     "subtitle": "Product Prototype Overview · 产品经理维护",
     "updatedAt": "2026-10-10",
     "owner": "PM",
@@ -68,7 +68,9 @@
           "subtitle": "百分制与品第评分切换、分项编辑及成绩概览。",
           "status": "in-progress",
           "previewUrl": "./2026.10/grade/",
-          "updatedAt": "2026-10-10"
+          "updatedAt": "2026-10-10",
+          "createdAt": "2026-10-10",
+          "folderName": "作文品第切换"
         }
       ]
     },
@@ -85,7 +87,9 @@
           "subtitle": "批量导入作文、核查文件与学生对应关系，查看需求及验收清单。",
           "status": "launched",
           "previewUrl": "./2026.09/mingti-zuowen-piliang-daoru/",
-          "updatedAt": "2026-10-10"
+          "updatedAt": "2026-10-10",
+          "createdAt": "2026-09-21",
+          "folderName": "命题作文-批量导入"
         }
       ]
     },

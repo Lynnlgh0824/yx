@@ -1,0 +1,40 @@
+<!doctype html><html lang="zh-Hant"><head>
+<meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>排行榜-補充說明</title><link rel="stylesheet" href="source-styles.css"><link rel="stylesheet" href="page.css"></head><body><nav class="preview-nav"><div class="preview-group"><strong>排行榜-補充說明</strong><a class="selected" href="#student">學生端（啟達-iPad平板端）</a></div><a class="history" href="../../index.html">歷史需求彙總頁</a></nav><main class="preview-stage"><aside class="scenario-tabs" role="tablist" aria-label="名次情境"><button type="button" role="tab" id="within-tab" aria-controls="ranking-panel" aria-selected="true" data-scenario="within">10 名之內</button><button type="button" role="tab" id="outside-tab" aria-controls="ranking-panel" aria-selected="false" tabindex="-1" data-scenario="outside">10 名之外</button></aside><div class="ranking-viewport" id="ranking-panel" role="tabpanel" aria-labelledby="within-tab"><div class="task-rank-page practice-rank-page">
+                <header class="task-rank-head">
+                  <button id="back" aria-label="返回歷史需求彙總頁">‹</button>
+                  <div class="task-metric-tabs" aria-label="排行榜指標">
+                    <button class="task-metric-tab active" data-practice-metric="task-score">任務總分榜</button>
+                    <button class="task-metric-tab" data-practice-metric="practice-score">練習總分榜</button>
+                  </div>
+                </header>
+                <div class="task-rank-content">
+                  <div class="task-period-tabs" aria-label="排行榜時間篩選">
+                    <button class="task-period-tab active" data-practice-period="week">本週</button>
+                    <button class="task-period-tab" data-practice-period="month">本月</button>
+                    <button class="task-period-tab" data-practice-period="term">本學期</button>
+                    <div class="rank-scope-inline" data-practice-scope-dropdown>
+                      <button class="rank-scope-trigger" type="button" data-practice-scope-toggle aria-haspopup="true" aria-expanded="false">
+                        <span data-practice-scope-label>班級</span>
+                        <i aria-hidden="true"></i>
+                      </button>
+                      <div class="rank-scope-menu" role="menu" aria-label="排行榜範圍">
+                        <button class="active" type="button" role="menuitemradio" aria-checked="true" data-practice-scope-option="class">班級</button>
+                        <button type="button" role="menuitemradio" aria-checked="false" data-practice-scope-option="grade">年級</button>
+                      </div>
+                    </div>
+                  </div>
+                  <section class="task-podium" data-practice-podium></section>
+                  <section class="task-my-rank">
+                    <div class="my-rank-stat">
+                      <span data-my-rank-label>我的名次：</span><span data-my-nickname hidden>曉剛</span>
+                      <strong data-practice-my-rank>4</strong>
+                    </div>
+                    <div class="rank-avatar me avatar-4"></div>
+                    <div class="my-rank-stat value">
+                      <em data-practice-my-value>856</em>
+                    </div>
+                    <p data-practice-my-trend>↑1 距離上一名還差 131 次！繼續加油！</p>
+                  </section>
+                  <section class="task-rank-list" data-practice-rank-list></section>
+                </div>
+              </div></div></main><script src="page.js"></script></body></html>

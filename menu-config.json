@@ -63,6 +63,15 @@
       "color": "blue",
       "items": [
         {
+          "id": "REQ-RANK-SUPPLEMENT",
+          "title": "排行榜-补充说明",
+          "folderName": "排行榜-补充说明",
+          "createdAt": "2026-10-12",
+          "updatedAt": "2026-10-12",
+          "status": "review",
+          "previewUrl": "./2026.10/paihangbang-buchong-shuoming/"
+        },
+        {
           "id": "REQ-ESSAY-GRADE",
           "title": "作文品第切换",
           "subtitle": "作文模拟报告、品第评分切换与保存。",

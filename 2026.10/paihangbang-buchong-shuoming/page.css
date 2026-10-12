@@ -30,3 +30,7 @@
 /* User-supplied student avatars, alternating across the ranking. */
 .practice-rank-page .rank-avatar::before{background-image:url('./assets/student-avatar-1.png');background-size:cover;background-position:center;box-shadow:none}
 .practice-rank-page .rank-avatar:is(.avatar-2,.avatar-4,.avatar-6,.avatar-8,.avatar-10)::before{background-image:url('./assets/student-avatar-2.png');background-size:cover;background-position:center}
+
+/* Keep scenario controls visible while the prototype page scrolls. */
+.scenario-tabs{position:fixed;z-index:40}
+@media(max-width:680px){.scenario-tabs{top:64px;left:0;right:0;padding:12px;background:#f1f4f8}}

@@ -36,5 +36,5 @@
 @media(max-width:680px){.scenario-tabs{top:64px;left:0;right:0;padding:12px;background:#f1f4f8}}
 
 /* Crop the supplied thumbnail whitespace inside each circular frame. */
-.practice-rank-page .rank-avatar::before{inset:0;background-size:175% 175%;background-position:50% 52%}
-.practice-rank-page .rank-avatar:is(.avatar-2,.avatar-4,.avatar-6,.avatar-8,.avatar-10)::before{background-size:175% 175%;background-position:49% 61%}
+.practice-rank-page .rank-avatar::before{inset:0;background-size:145% 145%;background-position:50% 46%}
+.practice-rank-page .rank-avatar:is(.avatar-2,.avatar-4,.avatar-6,.avatar-8,.avatar-10)::before{background-size:145% 145%;background-position:49% 52%}

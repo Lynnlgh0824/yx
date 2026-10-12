@@ -15,3 +15,14 @@
 .practice-rank-page .task-my-rank.outside-card{grid-template-rows:1fr;row-gap:0;padding-bottom:20px}
 .practice-rank-page .task-my-rank.outside-card .rank-avatar{margin-top:-66px}
 .practice-rank-page .task-my-rank.outside-card [data-my-nickname]{font-size:21px;line-height:1.2;color:#071044}
+
+/* Shared preview navigation: white surface and blue underline tabs. */
+.preview-nav{height:64px;padding:0 24px;border-bottom:1px solid #e2e8f0;gap:24px}
+.preview-group{height:64px;gap:0;padding:0;border:0;border-radius:0;background:transparent}
+.preview-group strong{font-size:14px;line-height:24px;font-weight:600;color:#52647c;border:0;padding:0 16px 0 0}
+.preview-group a{height:64px;display:flex;align-items:center;padding:0 18px;border-radius:0;border-bottom:2px solid transparent;font-size:14px;line-height:24px;font-weight:500;color:#758298;background:transparent}
+.preview-group .selected{background:#f5f8ff;color:#3563ff;border-bottom-color:#3563ff;font-weight:600}
+.preview-nav .preview-group a:hover{background:#f5f8ff;filter:none}
+@media(max-width:680px){.preview-nav{padding:0 12px}}
+
+.preview-nav{overflow-y:hidden}.preview-group{flex-shrink:0}

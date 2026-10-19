@@ -77,7 +77,7 @@
           "subtitle": "作文模拟报告、品第评分切换与保存。",
           "status": "in-progress",
           "previewUrl": "./2026.10/grade/",
-          "updatedAt": "2026-10-10",
+          "updatedAt": "2026-10-19",
           "createdAt": "2026-10-10",
           "folderName": "作文品第切换"
         },
@@ -126,9 +126,9 @@
           "folderName": "作文品第-相关优化",
           "subtitle": "成绩概览、品第统计、导出与学生端报告。",
           "status": "review",
-          "previewUrl": "./2026.10/zuowen-pindi-xiangguan-youhua/",
+          "previewUrl": "./2026.10/grade/",
           "createdAt": "2026-10-10",
-          "updatedAt": "2026-10-10"
+          "updatedAt": "2026-10-19"
         }
       ]
     },
